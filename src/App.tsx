@@ -1,12 +1,26 @@
-import './App.css'
+import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router";
+import Layout from "@/components/layout/Layout";
+import Home from "@/pages/Home";
+import Latest from "@/pages/Latest";
+import About from "@/pages/About";
+import Contact from "@/pages/Contact";
+import NotFound from "@/pages/NotFound";
 
 function App() {
-
   return (
-   <div className='flex flex-col items-center justify-center h-screen'>
-    <h1 className='text-4xl font-bold text-red-400'>FitPeo React Website clone assignment</h1>
-   </div>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path="/" index element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/latest" element={<Latest />} /> 
+          <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
