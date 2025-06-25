@@ -2,3 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    body {
+      @apply break-words font-normal text-base leading-[140%] tracking-[0];
+      font-family: "Inter", Helvetica, sans-serif;
+    }
+  }
