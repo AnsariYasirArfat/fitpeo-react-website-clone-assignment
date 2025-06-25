@@ -3,8 +3,25 @@
 @tailwind utilities;
 
 @layer base {
-    body {
-      @apply break-words font-normal text-base leading-[140%] tracking-[0];
-      font-family: "Inter", Helvetica, sans-serif;
+  body {
+    @apply font-fitpeo break-words font-normal text-base leading-[140%] tracking-[0];
+  }
+}
+
+@layer utilities {
+  .font-display {
+    @apply font-bold uppercase text-6rem leading-80 tracking-[0] text-fitpeo-gray;
+  }
+
+  @screen sm {
+    .font-display {
+      @apply text-10rem;
     }
   }
+
+  @screen xl {
+    .font-display {
+      @apply text-14rem;
+    }
+  }
+}

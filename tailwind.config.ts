@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-
+import plugin from "tailwindcss/plugin";
 const config: Config = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
@@ -9,6 +9,17 @@ const config: Config = {
         "fitpeo-black": "#000000",
         "fitpeo-white": "#e7e7e7",
         "fitpeo-red": "#ff6340",
+      },
+      fontSize: {
+        "6rem": "6rem",
+        "10rem": "10rem",
+        "14rem": "14rem",
+      },
+      lineHeight: {
+        "80": "80%",
+      },
+      fontFamily: {
+        fitpeo: ["Inter", "Helvetica", "sans-serif"],
       },
       keyframes: {
         "fade-in": {
@@ -23,7 +34,11 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(({ addVariant }) => {
+      addVariant("hocus", ["&:hover", "&:focus"]);
+    }),
+  ],
 } satisfies Config;
 
 export default config;

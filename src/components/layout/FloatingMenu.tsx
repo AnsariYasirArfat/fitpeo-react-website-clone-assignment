@@ -9,7 +9,7 @@ const FloatingMenu = () => {
 
   return (
     <div
-      className="font-h3 fixed bottom-4 right-4 z-20 border border-fitpeo-black bg-fitpeo-white text-fitpeo-black max-sm:left-4 md:bottom-6 md:right-6"
+      className=" fixed bottom-4 right-4 z-20 border border-fitpeo-black bg-fitpeo-white text-fitpeo-black max-sm:left-4 md:bottom-6 md:right-6"
       style={{ position: 'fixed', opacity: 1, transform: 'none' }}
     >
       <div className={`max-sm:!w-auto transition-all duration-300 ${isOpen ? 'w-auto' : 'w-[13rem]'}`}>
@@ -17,7 +17,7 @@ const FloatingMenu = () => {
           <button
             type="button"
             aria-label={isOpen ? 'Close Menu' : 'Open Menu'}
-            className="focus-ring flex h-12 w-full items-center gap-x-3 border-fitpeo-black px-3 transition-colors justify-between border-b pr-0 hover:bg-fitpeo-red"
+            className=" flex h-12 w-full items-center gap-x-3 border-fitpeo-black px-3 transition-colors justify-between border-b pr-0 hover:bg-fitpeo-red"
             data-rac=""
             aria-hidden={isOpen ? 'true' : undefined}
             onClick={toggleMenu}
@@ -44,7 +44,7 @@ const FloatingMenu = () => {
               <>
                 <span data-focus-scope-start="true" hidden aria-hidden="true" />
                 <div className="react-aria-ModalOverlay" data-rac>
-                  <div className="no-focus" data-rac>
+                  <div className="" data-rac>
                     <div
                       style={{
                         border: 0,
@@ -61,11 +61,11 @@ const FloatingMenu = () => {
                     >
                       <button aria-label="Dismiss" tabIndex={-1} style={{ width: 1, height: 1 }} />
                     </div>
-                    <section role="dialog" tabIndex={-1} className="no-focus" style={{ height: 'auto' }}>
+                    <section role="dialog" tabIndex={-1} className="" style={{ height: 'auto' }}>
                       <h2 slot="title" className="sr-only">Menu</h2>
                       <nav className="flex flex-col gap-x-8 sm:w-[26rem]" aria-label="Menu">
                         <a
-                          className="focus-ring group relative flex h-12 w-full items-center gap-x-3 border-fitpeo-black px-3 transition-colors hocus:underline"
+                          className="  relative flex h-12 w-full items-center gap-x-3 border-fitpeo-black px-3 transition-colors hocus:underline"
                           data-rac=""
                           href="/"
                           target="_self"
@@ -85,7 +85,7 @@ const FloatingMenu = () => {
                           Home
                         </a>
                         <a
-                          className="focus-ring group relative flex h-12 w-full items-center gap-x-3 border-fitpeo-black px-3 transition-colors hocus:underline"
+                          className="  relative flex h-12 w-full items-center gap-x-3 border-fitpeo-black px-3 transition-colors hocus:underline"
                           data-rac=""
                           href="/about"
                           target="_self"
@@ -106,7 +106,7 @@ const FloatingMenu = () => {
                           About
                         </a>
                         <a
-                          className="focus-ring group relative flex h-12 w-full items-center gap-x-3 border-fitpeo-black px-3 transition-colors hocus:underline"
+                          className="  relative flex h-12 w-full items-center gap-x-3 border-fitpeo-black px-3 transition-colors hocus:underline"
                           data-rac=""
                           href="/latest"
                           target="_self"
@@ -129,7 +129,7 @@ const FloatingMenu = () => {
                           Latest
                         </a>
                         <a
-                          className="focus-ring group relative flex h-12 w-full items-center gap-x-3 border-fitpeo-black px-3 transition-colors hocus:underline"
+                          className="  relative flex h-12 w-full items-center gap-x-3 border-fitpeo-black px-3 transition-colors hocus:underline"
                           data-rac=""
                           href="/contact"
                           target="_self"
@@ -152,7 +152,7 @@ const FloatingMenu = () => {
                       </nav>
                       <button
                         type="button"
-                        className="focus-ring h-12 w-full items-center border-fitpeo-black px-3 transition-colors flex gap-x-3 border-b hocus:underline"
+                        className=" h-12 w-full items-center border-fitpeo-black px-3 transition-colors flex gap-x-3 border-b hocus:underline"
                         data-rac=""
                       >
                         <svg
@@ -178,7 +178,7 @@ const FloatingMenu = () => {
           </div>
 
           <a
-            className="focus-ring group relative flex h-12 w-full items-center gap-x-3 border-fitpeo-black px-3 transition-colors border-t hover:bg-fitpeo-red"
+            className="  relative flex h-12 w-full items-center gap-x-3 border-fitpeo-black px-3 transition-colors border-t hover:bg-fitpeo-red"
             data-rac=""
             href="/#declaration"
             target="_self"
