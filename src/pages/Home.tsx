@@ -5,18 +5,19 @@ import DonateSection from "@/components/home/DonateSection";
 import EightActsSection from "@/components/home/EightActsSection";
 import LatestSection from "@/components/home/LatestSection";
 import NewsletterSection from "@/components/home/NewsletterSection";
+import SignatoriesList from "@/components/home/SignatoriesList";
 
 const Home = () => {
-
   return (
     <>
-      <DesignDeclareUK/>
-      <BreakdownSection/>
-      <DonateSection/>
-      <EightActsSection/>
-      <DeclarationSection/>
-      <LatestSection/>
-      <NewsletterSection/>
+      <DesignDeclareUK />
+      <BreakdownSection />
+      <DonateSection />
+      <EightActsSection />
+      <DeclarationSection />
+      <LatestSection />
+      <NewsletterSection />
+      <SignatoriesList />
     </>
   );
 };

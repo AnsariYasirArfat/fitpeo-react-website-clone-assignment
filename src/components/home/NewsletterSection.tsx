@@ -1,8 +1,9 @@
-import React from 'react';
+import NewsLetterConsent from "@/components/common/NewsLetterConsent";
 
-const NewsletterSection: React.FC = () => {
+
+const NewsletterSection = () => {
   return (
-    <section className="px-base md:px-md py-2xl first-of-type:pt-md last-of-type:pb-md">
+    <section className="px-4 md:px-6 py-16 first:pt-8 last:pb-8">
       <div className="container">
         <div style={{ opacity: 1, transform: 'none' }}>
           <div className="grid grid-cols-12 gap-y-8 md:gap-x-16">
@@ -16,7 +17,7 @@ const NewsletterSection: React.FC = () => {
                 <figure className="flex h-auto w-full flex-col items-center justify-center">
                   <div className="relative h-full w-full">
                     <img
-                      alt=""
+                      alt="news-letter"
                       loading="lazy"
                       width="3840"
                       height="2160"
@@ -53,21 +54,7 @@ const NewsletterSection: React.FC = () => {
                     name="email"
                   />
                 </div>
-                <div role="group" className="flex flex-row flex-wrap gap-4 font-p-sm" data-rac="" data-required="true">
-                  <label className="group/focus group flex items-center gap-x-2 transition-colors [&[data-selected]_.box]:!border-fitpeo-white [& commemorate_.box]:border-fitpeo-gray">
-                    <span style={{ border: 0, clip: 'rect(0 0 0 0)', clipPath: 'inset(50%)', height: '1px', margin: '-1px', overflow: 'hidden', padding: 0, position: 'absolute', width: '1px', whiteSpace: 'nowrap' }}>
-                      <input type="checkbox" required name="newsletterConsent" value="true" title="" />
-                    </span>
-                    <span className="box focus-border mb-auto mt-0 flex size-12 flex-shrink-0 items-center justify-center border" aria-hidden="true">
-                      <svg width="100%" height="100%" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1" xmlns="http://www.w3.org/2000/svg" className="size-12 rotate-45 scale-0 transition-transform group-data-[selected]:scale-100">
-                        <path strokeLinecap="square" d="M12 4.5v15m7.5-7.5h-15" />
-                      </svg>
-                    </span>
-                    <span className="max-w-full transition-colors md:py-3.5 text-fitpeo-gray group-data-[selected]:text-fitpeo-white whitespace-normal !py-0">
-                      I would like to be added to the Design Declares! newsletter and receive further updates.
-                    </span>
-                  </label>
-                </div>
+                <NewsLetterConsent />
                 <a className="focus-ring group relative w-fit underline transition-colors hocus:text-[--focus-color] font-p-sm block" data-rac="" href="/privacy-policy" target="_self">
                   View our Privacy Policy
                 </a>
