@@ -1,5 +1,5 @@
 import { countries } from "@/data/countries";
-import React, { useState } from "react";
+import { useState } from "react";
 import NewsLetterConsent from "@/components/common/NewsLetterConsent";
 
 type EntityType = "Business" | "Individual" | "Institution" | "Team";
