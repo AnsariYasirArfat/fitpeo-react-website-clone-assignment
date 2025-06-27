@@ -726,10 +726,6 @@ export const signatoriesList: SignatoriesList = {
     { name: "WizzDev", url: "https://wizzdev.com/" },
     { name: "Working with Joe Ltd", url: "https://www.workingwithjoe.co.uk/" },
     { name: "Works in Public Ltd", url: "https://www.worksinpublic.co.uk/" },
-    {
-      name: "www.archetypeaccessories.com",
-      url: "https://www.archetypeaccessories.com/",
-    },
     { name: "xforwhy", url: "https://www.xforwhy.com/" },
     { name: "XTATX Studio", url: "https://xtatx.studio/" },
     { name: "Yarn Creative", url: "https://www.yarn-creative.com/" },

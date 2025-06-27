@@ -1,3 +1,5 @@
+import { easeOut, motion } from "motion/react";
+
 interface ActItem {
   number: number;
   title: string;
@@ -31,7 +33,7 @@ const acts: ActItem[] = [
   },
   {
     number: 5,
-    title: "Redefine ‘Good’",
+    title: "Redefine 'Good'",
     description:
       "Encourage, recognise and reward sustainable and regenerative design excellence in our industry through media and awards.",
   },
@@ -59,7 +61,7 @@ const ActItem = ({ number, title, description }: ActItem) => {
   return (
     <div className="group ">
       <div className="flex items-center border border-fitpeo-black">
-        <h3 className="text-2xl font-bold flex w-full leading-none text-fitpeo-black">
+        <h3 className="font-h1 flex w-full leading-none text-fitpeo-black">
           <span className="flex size-[3rem] flex-shrink-0 items-center justify-center tabular-nums md:size-[4.5rem]">
             {number}
           </span>
@@ -77,9 +79,20 @@ const ActItem = ({ number, title, description }: ActItem) => {
   );
 };
 
+const sectionVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: easeOut} },
+};
+
 const EightActsSection = () => {
   return (
-    <section className="px-4 md:px-6 py-16 first:pt-8 last:pb-8">
+    <motion.section
+      variants={sectionVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      className="px-4 md:px-6 py-16 first:pt-8 last:pb-8"
+    >
       <div className="container mx-auto">
         <div className="grid grid-cols-12 gap-y-8 md:gap-x-16">
           <div className="col-span-12 lg:col-span-4">
@@ -90,7 +103,7 @@ const EightActsSection = () => {
           <div className="col-span-12 lg:col-span-7 lg:col-start-6">
             <div className="space-y-12">
               <p className="text-lg">
-                What does it take to Declare? It’s accepting we are in an
+                What does it take to Declare? It's accepting we are in an
                 emergency of climate and nature, and a commitment to do
                 something about it. Here are eight places to start:
               </p>
@@ -108,7 +121,7 @@ const EightActsSection = () => {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

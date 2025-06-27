@@ -1,5 +1,17 @@
+import { motion, easeOut } from "motion/react";
 import { articles, type Article } from "@/data/articleList";
 import { useState } from "react";
+
+const containerVariants = {
+  visible: {
+    transition: { staggerChildren: 0.2 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: easeOut } },
+};
 
 interface FilterOptionProps {
   value: string;
@@ -19,7 +31,7 @@ const FilterOption = ({
   const bgClass = selected ? "bg-fitpeo-red" : "bg-fitpeo-gray-800";
   const textClass = selected ? "text-fitpeo-black" : "text-fitpeo-gray-400";
   return (
-    <label className="no-focus group寝 group/focus group cursor-pointer">
+    <label className="no-focus group group/focus group cursor-pointer">
       <span
         style={{
           border: "0px",
@@ -66,7 +78,13 @@ const FilterGroup = ({
 }: FilterGroupProps) => {
   const groupName = title.toLowerCase().replace(" ", "-");
   return (
-    <div className="space-y-4">
+    <motion.div
+      variants={itemVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      className="space-y-4"
+    >
       <h2 className="font-h3 font-semibold">{title}</h2>
       <div
         aria-label={`Filter articles by ${title.toLowerCase()}`}
@@ -84,18 +102,22 @@ const FilterGroup = ({
           />
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
 const ArticleComponent = ({ article }: { article: Article }) => {
   return (
-    <a
+    <motion.a
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={itemVariants}
       className="focus-ring group relative transition-colors block h-full w-full @container"
       href={article.link}
     >
       <article className="grid grid-cols-12 gap-y-6 md:gap-x-8">
-        <div className="relative col-span-12 max-w-md overflow-hidden @2xl:col-span-6">
+        <div className="relative col-span-12 max-w-md overflow-hidden 2xl:col-span-6">
           <figure className="flex h-auto w-full flex-col items-center justify-center">
             <div className="relative h-full w-full transition-transform duration-500 group-hocus:scale-105">
               <img
@@ -107,7 +129,7 @@ const ArticleComponent = ({ article }: { article: Article }) => {
             </div>
           </figure>
         </div>
-        <div className="col-span-12 space-y-4 @2xl:col-span-6">
+        <div className="col-span-12 space-y-4 2xl:col-span-6">
           <div className="flex flex-wrap items-center gap-2 text-sm text-fitpeo-gray-400">
             {article.tags.map((tag) => (
               <span
@@ -129,7 +151,7 @@ const ArticleComponent = ({ article }: { article: Article }) => {
           )}
         </div>
       </article>
-    </a>
+    </motion.a>
   );
 };
 
@@ -149,7 +171,13 @@ const Latest = () => {
   });
 
   return (
-    <section className="px-4 md:px-6 py-16">
+    <motion.section
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={containerVariants}
+      className="px-4 md:px-6 py-16"
+    >
       <div className="container">
         <div style={{ opacity: 1, transform: "none" }}>
           <div className="grid grid-cols-12 gap-y-8 md:gap-x-16">
@@ -174,17 +202,18 @@ const Latest = () => {
             </div>
             <div className="col-span-12 space-y-12 lg:col-span-7 lg:col-start-6">
               <div className="space-y-20">
-                {filteredArticles.map((article, index) => (
-                  <div key={index} style={{ opacity: 1, transform: "none" }}>
-                    <ArticleComponent article={article} />
-                  </div>
+                {filteredArticles.map((article) => (
+                  <ArticleComponent
+                    key={article.link + article.title}
+                    article={article}
+                  />
                 ))}
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

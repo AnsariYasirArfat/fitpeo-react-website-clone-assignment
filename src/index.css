@@ -15,7 +15,7 @@
 
 @layer utilities {
   .font-display {
-    @apply font-extrabold uppercase text-6rem leading-[0.8] tracking-[-0.05em]  text-fitpeo-white;
+    @apply font-extrabold uppercase text-[4rem] leading-[0.8] tracking-[-0.05em]  text-fitpeo-white;
     transform: scaleY(1.2);
     transform-origin: center top;
     font-stretch: condensed;
@@ -23,13 +23,13 @@
 
   @screen sm {
     .font-display {
-      @apply text-[8rem];
+      @apply text-[6rem];
     }
   }
 
   @screen xl {
     .font-display {
-      @apply text-[10rem];
+      @apply text-[9rem];
     }
   }
 
@@ -38,6 +38,126 @@
     margin-right: auto;
     max-width: 1440px;
   }
+
+  h1 {
+    font-size: 2rem;
+    line-height: 110%;
+    letter-spacing: -0.025em;
+  }
+
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 3.5rem;
+    }
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    line-height: 110%;
+    letter-spacing: 0;
+  }
+
+  @media (min-width: 768px) {
+    h2 {
+      font-size: 2rem;
+    }
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    line-height: 130%;
+  }
+
+  @media (min-width: 768px) {
+    h3 {
+      font-size: 1.5rem;
+    }
+  }
+
+  p {
+    overflow-wrap: break-word;
+    font-size: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    p {
+      font-size: 1.125rem;
+    }
+  }
+
+  .font-h1 {
+    font-size: 2rem;
+    line-height: 110%;
+    letter-spacing: -0.025em;
+  }
+
+  @media (min-width: 768px) {
+    .font-h1 {
+      font-size: 3.5rem;
+    }
+  }
+
+  .font-h2 {
+    font-size: 1.5rem;
+    line-height: 110%;
+  }
+
+  @media (min-width: 768px) {
+    .font-h2 {
+      font-size: 2rem;
+    }
+  }
+
+  .font-h3 {
+    font-size: 1.25rem;
+    line-height: 130%;
+  }
+
+  @media (min-width: 768px) {
+    .font-h3 {
+      font-size: 1.5rem;
+    }
+  }
+
+  .font-button {
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 110%;
+  }
+
+  @media (min-width: 768px) {
+    .font-button {
+      line-height: 95%;
+    }
+  }
+
+  .font-p {
+    overflow-wrap: break-word;
+    font-size: 1rem;
+    line-height: 140%;
+  }
+
+  @media (min-width: 768px) {
+    .font-p {
+      font-size: 1.125rem;
+    }
+  }
+
+  .font-p-lg {
+    font-size: 1.5rem;
+    line-height: 130%;
+  }
+
+  .font-p-lg,
+  .font-p-sm {
+    font-weight: 400;
+  }
+
+  .font-p-sm {
+    font-size: 0.75rem;
+    line-height: 140%;
+  }
+
   .focus-border:has([data-focus-visible]),
   .focus-border[data-focus-visible],
   .group\/focus:has([data-focus-visible]) .focus-border,
@@ -70,5 +190,17 @@
   .no-focus {
     outline: 2px solid transparent;
     outline-offset: 2px;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
   }
 }

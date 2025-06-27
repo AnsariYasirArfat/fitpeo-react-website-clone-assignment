@@ -1,7 +1,43 @@
-import {
-  signatoriesList,
-  type Signatory,
-} from "@/data/signatoriesList";
+import { signatoriesList, type Signatory } from "@/data/signatoriesList";
+import { animate, useInView } from "motion/react";
+import { useEffect, useRef } from "react";
+
+interface AnimatedCounterProps {
+  to: number;
+  duration?: number;
+  className?: string;
+}
+
+const AnimatedCounter = ({
+  to,
+  duration = 1,
+  className,
+}: AnimatedCounterProps) => {
+  const ref = useRef<HTMLSpanElement>(null);
+  const inViewRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(inViewRef, { once: true, margin: "-100px" });
+
+  useEffect(() => {
+    if (!isInView || !ref.current) return;
+    const controls = animate(0, to, {
+      duration,
+      onUpdate(value) {
+        if (ref.current) {
+          ref.current.textContent = Math.floor(value).toString();
+        }
+      },
+    });
+    return controls.stop;
+  }, [isInView, to, duration]);
+
+  return (
+    <div ref={inViewRef} style={{ display: "inline-block" }}>
+      <span ref={ref} className={className}>
+        0
+      </span>
+    </div>
+  );
+};
 
 const SignatoryLink = ({ name, url }: Signatory) => (
   <a
@@ -31,7 +67,7 @@ const SignatoriesSection = () => {
             <div className="space-y-12">
               <div>
                 <span className="block max-w-fit text-6xl">
-                  #{ukSignatories.length}
+                  #<AnimatedCounter to={ukSignatories.length} duration={1.2} />
                 </span>
                 <span className="flex flex-wrap items-center gap-2">
                   <span className="text-lg font-semibold">
@@ -54,7 +90,7 @@ const SignatoriesSection = () => {
 
               <div>
                 <span className="block max-w-fit text-6xl">
-                  #{totalGlobalSupporters}
+                  #<AnimatedCounter to={totalGlobalSupporters} duration={1.2} />
                 </span>
                 <h2 className="text-lg font-semibold">Global Supporters</h2>
               </div>

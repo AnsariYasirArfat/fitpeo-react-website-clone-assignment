@@ -1,3 +1,10 @@
+import { easeOut, motion } from "motion/react";
+
+const sectionVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7,ease: easeOut } },
+};
+
 const DonateSection = () => {
   const donations = [
     { amount: "£10", href: "https://wise.com/pay/r/uZ5h3pxRMmTE_pk" },
@@ -6,7 +13,13 @@ const DonateSection = () => {
   ];
 
   return (
-    <section className="px-4 md:px-6 py-16 first:pt-8 last:pb-8">
+    <motion.section
+      variants={sectionVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      className="px-4 md:px-6 py-16 first:pt-8 last:pb-8"
+    >
       <div className="container mx-auto">
         <div className="grid grid-cols-12 gap-y-8 md:gap-x-16">
           <div className="col-span-12 lg:col-span-4">
@@ -42,7 +55,7 @@ const DonateSection = () => {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

@@ -1,3 +1,4 @@
+import { easeOut, motion } from "motion/react";
 import NewsLetterConsent from "@/components/common/NewsLetterConsent";
 import { Link } from "react-router";
 
@@ -21,8 +22,29 @@ const Contact = () => {
     "Discuss something else",
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: easeOut } },
+  };
+
   return (
-    <section className="px-4 md:px-6 py-16 first:pt-8 last:pb-8">
+    <motion.section
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={containerVariants}
+      className="px-4 md:px-6 py-16 first:pt-8 last:pb-8"
+    >
       <div className="container">
         <div style={{ opacity: 1, transform: "none" }}>
           <div className="grid grid-cols-12 gap-y-8 md:gap-x-16">
@@ -37,8 +59,10 @@ const Contact = () => {
                 onSubmit={handleSubmit}
                 className="flex flex-col gap-y-8 border p-4 md:p-10 border-fitpeo-gray-400 text-fitpeo-white"
               >
-                <h2 className="font-h1">Send Us A Message</h2>
-                <div>
+                <motion.h2 variants={itemVariants} className="font-h1">
+                  Send Us A Message
+                </motion.h2>
+                <motion.div variants={itemVariants}>
                   <div className="focus-border relative -mt-px flex flex-col gap-x-2 border px-4 py-4 md:flex-row md:py-0 border-fitpeo-gray-400 text-fitpeo-white">
                     <label
                       className="max-w-full whitespace-nowrap transition-colors md:py-3.5 text-fitpeo-gray-400 group-data-[selected]:text-fitpeo-white"
@@ -132,29 +156,33 @@ const Contact = () => {
                       id="message"
                     />
                   </div>
-                </div>
-                <NewsLetterConsent />
-                <Link
-                  className="focus-ring group relative w-fit underline transition-colors hocus:text-[--focus-color] font-p-sm block"
-                  to="/privacy-policy"
-                  target="_self"
-                >
-                  View our Privacy Policy
-                </Link>
-                <div className="flex items-center gap-x-4">
+                </motion.div>
+                <motion.div variants={itemVariants}>
+                  <NewsLetterConsent />
+                </motion.div>
+                <motion.div variants={itemVariants}>
+                  <Link
+                    className="focus-ring group relative w-fit underline transition-colors hocus:text-[--focus-color] font-p-sm block"
+                    to="/privacy-policy"
+                    target="_self"
+                  >
+                    View our Privacy Policy
+                  </Link>
+                </motion.div>
+                <motion.div variants={itemVariants} className="flex items-center gap-x-4">
                   <button
                     type="submit"
                     className="focus-ring font-button group relative flex max-h-fit w-full items-center justify-center rounded-full px-6 py-3 text-center transition-colors md:max-w-fit md:py-4 border border-transparent bg-fitpeo-white text-fitpeo-black hocus:bg-fitpeo-red"
                   >
                     Send Message
                   </button>
-                </div>
+                </motion.div>
               </form>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

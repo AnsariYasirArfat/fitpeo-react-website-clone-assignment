@@ -1,4 +1,5 @@
 import { useState, type ReactElement } from "react";
+import { easeOut, motion } from "motion/react";
 
 interface AccordionItemProps {
   title: string;
@@ -51,9 +52,20 @@ const AccordionItem = ({ title, content, id }: AccordionItemProps) => {
   );
 };
 
+const sectionVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: easeOut} },
+};
+
 const BreakdownSection = () => {
   return (
-    <section className="px-4 md:px-6 py-16 first:pt-8 last:pb-8">
+    <motion.section
+      variants={sectionVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      className="px-4 md:px-6 py-16 first:pt-8 last:pb-8"
+    >
       <div className="container mx-auto">
         <div className="grid grid-cols-12 gap-y-8 md:gap-x-16">
           <div className="col-span-12 lg:col-span-4">
@@ -89,7 +101,7 @@ const BreakdownSection = () => {
                         Because designers are makers. We make ideas real. We
                         generate solutions. We build the world - dreaming up
                         new futures and bringing them to life in ways that are
-                        beautiful, vital and impossible to resist. It’s not
+                        beautiful, vital and impossible to resist. It's not
                         quite magic, but it feels like it.
                       </p>
                     </div>
@@ -123,7 +135,7 @@ const BreakdownSection = () => {
                       </p>
                       <p>
                         And it means acting systemically - seeing the bigger
-                        picture and working with others to sharpen design’s
+                        picture and working with others to sharpen design's
                         incredible capacity to influence and accelerate climate
                         repair and justice.
                       </p>
@@ -168,7 +180,7 @@ const BreakdownSection = () => {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

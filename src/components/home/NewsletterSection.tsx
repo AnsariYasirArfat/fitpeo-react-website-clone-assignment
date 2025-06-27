@@ -1,9 +1,21 @@
 import NewsLetterConsent from "@/components/common/NewsLetterConsent";
 import { Link } from "react-router";
+import { easeOut, motion } from "motion/react";
+
+const sectionVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: easeOut } },
+};
 
 const NewsletterSection = () => {
   return (
-    <section className="px-4 md:px-6 py-16 first:pt-8 last:pb-8">
+    <motion.section
+      variants={sectionVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      className="px-4 md:px-6 py-16 first:pt-8 last:pb-8"
+    >
       <div className="container">
         <div style={{ opacity: 1, transform: "none" }}>
           <div className="grid grid-cols-12 gap-y-8 md:gap-x-16">
@@ -87,7 +99,7 @@ const NewsletterSection = () => {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

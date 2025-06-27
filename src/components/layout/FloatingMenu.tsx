@@ -10,12 +10,10 @@ const FloatingMenu = () => {
   const [showContent, setShowContent] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
-  // Show content when opening
   useEffect(() => {
     if (isOpen) setShowContent(true);
   }, [isOpen]);
 
-  // Click outside to close
   useEffect(() => {
     if (!isOpen) return;
     const handleClick = (e: MouseEvent) => {
@@ -27,7 +25,6 @@ const FloatingMenu = () => {
     return () => document.removeEventListener("mousedown", handleClick);
   }, [isOpen]);
 
-  // When height animation finishes and menu is closed, hide content
   const handleHeightAnimationComplete = () => {
     if (!isOpen) setShowContent(false);
   };
@@ -36,7 +33,7 @@ const FloatingMenu = () => {
     <>
       {isOpen && (
         <div
-          className="fixed inset-0 z-10 bg-black/30 backdrop-blur-sm"
+          className="fixed inset-0 z-10 bg-black/50 backdrop-blur-sm"
           aria-hidden="true"
         />
       )}
@@ -44,8 +41,8 @@ const FloatingMenu = () => {
         ref={menuRef}
         initial={{ opacity: 0, translateY: 20 }}
         animate={{ opacity: 1, translateY: 0 }}
-        transition={{ delay: 1, duration: 0.5 }}
-        className="fixed bottom-4 right-4 z-20 border border-fitpeo-black bg-fitpeo-white text-fitpeo-black max-sm:left-4 md:bottom-6 md:right-6"
+        transition={{ delay: 3, duration: 0.5 }}
+        className="font-h3 fixed bottom-4 right-4 z-20 border border-fitpeo-black bg-fitpeo-white text-fitpeo-black max-sm:left-4 md:bottom-6 md:right-6"
       >
         <motion.div
           animate={isOpen ? { width: "26rem" } : { width: "13rem" }}

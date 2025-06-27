@@ -25,7 +25,6 @@ const NewsletterForm = () => {
           autoComplete="email"
           required
           className="no-focus w-full bg-transparent md:py-3.5 placeholder:text-fitpeo-black"
-          placeholder="Enter your email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />

@@ -1,8 +1,20 @@
 import { Link } from "react-router";
+import { easeOut, motion } from "motion/react";
+
+const sectionVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: easeOut } },
+};
 
 const GlobalPartnerships = () => {
   return (
-    <section className="px-4 md:px-6 py-16 first:pt-8 last:pb-8">
+    <motion.section
+      variants={sectionVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      className="px-4 md:px-6 py-16 first:pt-8 last:pb-8"
+    >
       <div className="container">
         <div style={{ opacity: 1, transform: "none" }}>
           <div className="grid grid-cols-12 gap-y-8 md:gap-x-16">
@@ -19,7 +31,7 @@ const GlobalPartnerships = () => {
                   action.*
                 </p>
                 <div className="grid grid-cols-2 gap-x-8 gap-y-4 @container">
-                  <div className="col-span-2 space-y-4 @xl:col-span-1">
+                  <div className="col-span-2 space-y-4 xl:col-span-1">
                     <div className="*:my-12 first:*:mt-0 last:*:mb-0 [&_li]:mb-1 [&_ol]:list-decimal [&_ol]:pl-4 [&_p]:my-6 [&_ul]:list-disc [&_ul]:pl-4">
                       <p>
                         The acts of emergency above are the first (big) steps.
@@ -28,18 +40,18 @@ const GlobalPartnerships = () => {
                         equitable.
                       </p>
                       <p>
-                        It doesn’t matter where on the journey you are. What
-                        matters is that you’re here, and you’re ready to do the
+                        It doesn't matter where on the journey you are. What
+                        matters is that you're here, and you're ready to do the
                         work. Because there is no design on a dead planet.
                       </p>
                     </div>
                   </div>
-                  <div className="col-span-2 space-y-4 @xl:col-span-1">
+                  <div className="col-span-2 space-y-4 xl:col-span-1">
                     <div className="*:my-12 first:*:mt-0 last:*:mb-0 [&_li]:mb-1 [&_ol]:list-decimal [&_ol]:pl-4 [&_p]:my-6 [&_ul]:list-disc [&_ul]:pl-4">
                       <p>
                         *We are actively seeking partnerships to expand Design
                         Declares around the world. If that sounds like something
-                        you’re interested in, please get in touch.
+                        you're interested in, please get in touch.
                       </p>
                       <p>Join our list of global partners...</p>
                       <p>
@@ -74,7 +86,7 @@ const GlobalPartnerships = () => {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

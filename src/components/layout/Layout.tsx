@@ -19,9 +19,9 @@ export default function Layout() {
           style={{ transform: `scaleX(${progress}) translateZ(0px` }}
         ></div>
       </div>
-      <div className="relative">
+      <div className="relative z-[2] ">
         <Header />
-        <main className="relative z-[1] -mb-[--rounded-main] rounded-b-[--rounded-main] bg-fitpeo-black pb-48">
+        <main className="relative z-[2] -mb-[--rounded-main] rounded-b-[--rounded-main] bg-fitpeo-black pb-48">
           <Outlet />
         </main>
       </div>

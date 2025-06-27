@@ -5,7 +5,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        "fitpeo-gray": "#c4c4c4",
+        "fitpeo-gray": {
+          DEFAULT: "#c4c4c4",
+          100: "#f5f5f5",
+          400: "#c4c4c4",
+          800: "#272727",
+        },
         "fitpeo-black": "#000000",
         "fitpeo-white": "#e7e7e7",
         "fitpeo-red": "#ff6340",
