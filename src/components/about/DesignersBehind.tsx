@@ -32,7 +32,6 @@ const DesignersBehind = () => {
                       href={logo.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      data-rac=""
                     >
                       <figure className="flex h-auto w-full flex-col items-center justify-center">
                         <div className="relative flex aspect-auto h-full max-h-14 w-full max-w-44">

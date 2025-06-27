@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router';
 
 const NewsletterForm = () => {
   const [email, setEmail] = useState('');
@@ -66,13 +67,13 @@ const NewsletterForm = () => {
               </span>
             </label>
           </div>
-          <a
+          <Link
             className="focus-ring group relative w-fit underline transition-colors hocus:text-[--focus-color] font-p-sm block"
-            href="/privacy-policy"
+            to="/privacy-policy"
             target="_self"
           >
             View our Privacy Policy
-          </a>
+          </Link>
         </div>
         <div className="flex items-center gap-x-4">
           <button

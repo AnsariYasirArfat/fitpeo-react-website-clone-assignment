@@ -131,9 +131,9 @@ export interface Article {
     {
       imageUrl: '/assets/articles/article16.webp',
       tags: ['Events', 'D! Australia'],
-      date: '', // Date missing in HTML, left empty
+      date: '', 
       title: 'Design Declares Australia Launch',
-      description: '', // Description missing in HTML, left empty
+      description: '',
       link: 'https://designdeclares.com.au/latest/design-declares-australia-launch',
     },
   ];

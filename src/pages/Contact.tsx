@@ -1,4 +1,5 @@
 import NewsLetterConsent from "@/components/common/NewsLetterConsent";
+import { Link } from "react-router";
 
 const Contact = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -133,13 +134,13 @@ const Contact = () => {
                   </div>
                 </div>
                 <NewsLetterConsent />
-                <a
+                <Link
                   className="focus-ring group relative w-fit underline transition-colors hocus:text-[--focus-color] font-p-sm block"
-                  href="/privacy-policy"
+                  to="/privacy-policy"
                   target="_self"
                 >
                   View our Privacy Policy
-                </a>
+                </Link>
                 <div className="flex items-center gap-x-4">
                   <button
                     type="submit"

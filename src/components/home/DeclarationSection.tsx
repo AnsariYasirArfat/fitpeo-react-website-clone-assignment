@@ -1,6 +1,7 @@
 import { countries } from "@/data/countries";
 import { useState } from "react";
 import NewsLetterConsent from "@/components/common/NewsLetterConsent";
+import { Link } from "react-router";
 
 type EntityType = "Business" | "Individual" | "Institution" | "Team";
 
@@ -197,7 +198,6 @@ const DeclarationSection = () => {
                       name="website"
                     />
                   </div>
-                  {/* Country Dropdown */}
                   <div className="focus-border relative -mt-px flex flex-col gap-x-2 border px-4 py-4 md:flex-row md:py-0 border-fitpeo-gray-400 text-fitpeo-white">
                     <label
                       className="max-w-full whitespace-nowrap transition-colors md:py-3.5 text-fitpeo-gray-400"
@@ -227,7 +227,6 @@ const DeclarationSection = () => {
                     </select>
                   </div>
 
-                  {/* Discipline Dropdown */}
                   <div className="focus-border relative -mt-px flex flex-col gap-x-2 border px-4 py-4 md:flex-row md:py-0 border-fitpeo-gray-400 text-fitpeo-white">
                     <label
                       className="max-w-full whitespace-nowrap transition-colors md:py-3.5 text-fitpeo-gray-400"
@@ -334,13 +333,13 @@ s md:py-3.5 text-fitpeo-gray-400"
                   </div>
                   <NewsLetterConsent />
                 </div>
-                <a
+                <Link
                   className="focus-ring group relative w-fit underline transition-colors hocus:text-[--focus-color] font-p-sm block"
-                  href="/privacy-policy"
+                  to="/privacy-policy"
                   target="_self"
                 >
                   View our Privacy Policy
-                </a>
+                </Link>
                 <div className="flex items-center gap-x-4">
                   <button
                     type="button"

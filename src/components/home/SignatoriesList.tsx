@@ -10,7 +10,6 @@ const SignatoryLink = ({ name, url }: Signatory) => (
     target="_blank"
     rel="noopener noreferrer"
     aria-label={`Go to ${name}'s website.`}
-    data-rac=""
   >
     {name}
   </a>
@@ -30,7 +29,6 @@ const SignatoriesSection = () => {
         <div style={{ opacity: 1, transform: "none" }}>
           <div className="">
             <div className="space-y-12">
-              {/* UK Signatories Section */}
               <div>
                 <span className="block max-w-fit text-6xl">
                   #{ukSignatories.length}

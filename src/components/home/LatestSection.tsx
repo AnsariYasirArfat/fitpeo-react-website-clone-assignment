@@ -1,4 +1,5 @@
 import { articles, type Article } from "@/data/articleList";
+import { Link } from "react-router";
 
 const ArticleComponent = ({ article }: { article: Article }) => {
   return (
@@ -27,7 +28,6 @@ const ArticleComponent = ({ article }: { article: Article }) => {
         <a
           className="focus-ring group relative w-fit underline transition-colors hocus:text-[--focus-color] inline-block"
           href={article.link}
-          data-rac=""
         >
           Read story
         </a>
@@ -60,13 +60,12 @@ const LatestSection = () => {
                   ))}
                 </div>
                 <div style={{ opacity: 1, transform: "none" }}>
-                  <a
+                  <Link
                     className="focus-ring group h-full font-button relative flex max-h-fit w-full items-center justify-center rounded-full px-6 py-3 text-center transition-colors md:max-w-fit md:py-4 border border-transparent bg-fitpeo-white text-fitpeo-black hocus:bg-fitpeo-red"
-                    href="/latest"
-                    data-rac=""
+                    to="/latest"
                   >
                     See all the latest
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
